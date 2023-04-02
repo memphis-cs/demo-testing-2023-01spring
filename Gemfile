@@ -89,3 +89,6 @@ gem 'bootswatch', github: 'thomaspark/bootswatch'
 
 # Bootstrap-styled rails form helpers
 gem 'bootstrap_form', '~> 5.1'
+
+# User Authentication framework
+gem 'devise'
