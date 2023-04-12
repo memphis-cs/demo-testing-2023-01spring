@@ -4,9 +4,9 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  get 'limericks', to: 'limericks#index', as: 'limericks'
-
   # Defines the root path route ("/")
-  root to: redirect("/limericks")
+  root to: 'limericks#index'
+
+  get 'user/:user_id/limericks', to: 'user_limericks#index', as: 'user_limericks'
 
 end
