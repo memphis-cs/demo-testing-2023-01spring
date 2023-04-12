@@ -48,7 +48,7 @@ Limerick.create!(
 
 Limerick.create!(
   title: 'A canner, exceedingly canny',
-  limerick_text: "A canner, exceedingly canny\nOne morning remarked to his granny,\n\"A canner can can\nAnything that he can; But a canner can't can a can, can he?\"",
+  limerick_text: "A canner, exceedingly canny\nOne morning remarked to his granny,\n\"A canner can can\nAnything that he can;\nBut a canner can't can a can, can he?\"",
   author: bob
 )
 
