@@ -19,11 +19,11 @@
 #
 
 one:
-  title: MyString
-  limerick_text: MyText
+  title: There once was a farmer from Leeds
+  limerick_text: "There once was a farmer from Leeds,\nWho swallowed a packet of seeds.\nIt soon came to pass,\nHe was covered with grass,\nBut has all the tomatoes he needs."
   author: one
 
 two:
-  title: MyString
-  limerick_text: MyText
-  author: two
+  title: A canner, exceedingly canny
+  limerick_text: "A canner, exceedingly canny\nOne morning remarked to his granny,\n\"A canner can can\nAnything that he can;\nBut a canner can't can a can, can he?\""
+  author: one
