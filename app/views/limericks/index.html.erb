@@ -1,5 +1,11 @@
 <h1>All Limericks</h1>
 
+<% if user_signed_in? %>
+  <p>
+    <%= link_to "+ New Limerick", new_limerick_path, class: "btn btn-primary"%>
+  </p>
+<% end %>
+
 <div class="row row-cols-1 row-cols-lg-2 g-4">
 
   <% @limericks.each do |l| %>
@@ -9,6 +15,10 @@
         <h5 class="card-title"><%= l.title %></h5>
         <p class="card-text" style="white-space: pre-line"><%= l.limerick_text %></p>
         <p class="card-text"><small class="text-muted">By <%= link_to l.author.email, user_limericks_path(l.author) %></small></p>
+        <% if l.author == current_user %>
+          <%= button_to 'Edit', edit_limerick_path(l), method: :get, data: { turbo: false }, class: 'btn btn-primary btn-sm', form: { class: 'd-inline' } %>
+          <%= button_to 'Delete', limerick_path(l), method: :delete, data: { turbo: false }, class: 'btn btn-primary btn-sm', form: { class: 'd-inline' } %>
+        <% end %>
       </div>
     </div>
   </div>

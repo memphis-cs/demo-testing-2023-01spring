@@ -1,0 +1,7 @@
+<h1>Edit Limerick</h1>
+
+<%= bootstrap_form_with model: @limerick, url: limerick_path(@limerick), method: :patch, data: { turbo: false } do |f| %>
+  <%= f.text_field :title %>
+  <%= f.text_area :limerick_text %>
+  <%= f.submit %>
+<% end %>

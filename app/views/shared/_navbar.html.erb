@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container-fluid">
     <%= link_to 'LimerIQ', root_path, class: 'navbar-brand' %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,36 +8,22 @@
 
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <%= link_to 'Home', root_path, class: 'nav-link', aria: { current: 'page' } %>
+          <%= link_to 'Home', root_path, class: "nav-link #{active_class(root_path)}", aria: { current: 'page' } %>
         </li>
         <% if user_signed_in? %>
         <li class="nav-item">
-          <%= link_to 'My Limericks', user_limericks_path(current_user), class: 'nav-link', aria: { current: 'page' } %>
+          <%= link_to 'My Limericks', user_limericks_path(current_user), class: "nav-link #{active_class(user_limericks_path(current_user))}", aria: { current: 'page' } %>
         </li>
         <% end %>
       </ul>
 
-      <ul class="navbar-nav">
-        <% if user_signed_in? %>
-          <li class="nav-item">
-            <%= link_to "Hi, #{current_user.email}", edit_user_registration_path,
-                        class: "nav-link #{active_class(edit_user_registration_path)} btn btn-link" %>
-          </li>
-          <li class="nav-item">
-            <%= button_to 'Sign Out', destroy_user_session_path,
-                        method: :delete, data: { turbo: false }, class: 'nav-link btn btn-link' %>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to 'Sign In', new_user_session_path,
-                        class: "nav-link #{active_class(new_user_session_path)} btn btn-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to 'Sign Up', new_user_registration_path,
-                        class: "nav-link #{active_class(new_user_registration_path)} btn btn-link" %>
-          </li>
-        <% end %>
-      </ul>
+      <% if user_signed_in? %>
+        <%= link_to "Hi, #{current_user.email}", edit_user_registration_path, class: "btn btn-primary btn-sm mx-1 my-2 my-sm-0" %>
+        <%= button_to 'Sign Out', destroy_user_session_path, method: :delete, data: { turbo: false }, class: 'btn btn-primary btn-sm mx-1 my-2 my-sm-0' %>
+      <% else %>
+        <%= link_to 'Sign In', new_user_session_path, class: "btn btn-primary btn-sm mx-1 my-2 my-sm-0" %>
+        <%= link_to 'Sign Up', new_user_registration_path, class: "btn btn-primary btn-sm mx-1 my-2 my-sm-0" %>
+      <% end %>
 
     </div>
   </div>

@@ -4,7 +4,7 @@ class UserLimericksController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    @limericks = @user.limericks
+    @limericks = @user.limericks.reverse_order
     render :index
   end
 

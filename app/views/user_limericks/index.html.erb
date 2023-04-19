@@ -8,6 +8,10 @@
       <div class="card-body">
         <h5 class="card-title"><%= l.title %></h5>
         <p class="card-text" style="white-space: pre-line"><%= l.limerick_text %></p>
+        <% if l.author == current_user %>
+          <%= button_to 'Edit', edit_limerick_path(l), method: :get, data: { turbo: false }, class: 'btn btn-primary btn-sm', form: { class: 'd-inline' } %>
+          <%= button_to 'Delete', limerick_path(l), method: :delete, data: { turbo: false }, class: 'btn btn-primary btn-sm', form: { class: 'd-inline' } %>
+        <% end %>
       </div>
     </div>
   </div>
