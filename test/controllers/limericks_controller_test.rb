@@ -49,4 +49,26 @@ class LimericksControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_url
   end
 
+  test "should destroy limerick" do
+    user = users(:one)
+    sign_in user
+    limerick = user.limericks.first
+    assert_difference("Limerick.count", -1) do
+      delete limerick_url(limerick)
+    end
+    assert_response :redirect
+    assert_redirected_to root_url
+  end
+
+  test "should destroy other users limerick" do
+    user_one = users(:one)
+    user_two = users(:two)
+    sign_in user_two
+    limerick = user_one.limericks.first
+    assert_difference("Limerick.count", 0) do
+      delete limerick_url(limerick)
+    end
+    assert_response :redirect
+  end
+
 end

@@ -92,3 +92,6 @@ gem 'bootstrap_form', '~> 5.1'
 
 # User Authentication framework
 gem 'devise'
+
+# White-Box Testing Coverage Metrics
+gem 'simplecov', require: false, group: :test
